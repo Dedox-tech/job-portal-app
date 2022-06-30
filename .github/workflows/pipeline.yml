@@ -26,11 +26,19 @@ jobs:
               run: npm run prettier
             - name: Build
               run: npm run build
-            - name: Post sucess to Slack
+            - name: Success notification to Slack
               uses: slackapi/slack-github-action@v1.19.0
               if: success()
               with:
                   channel-id: "github-actions"
-                  slack-message: "The build was successfull"
+                  slack-message: "I am a Bot! The build ${{ github.event.pull_request.html_url || github.event.head_commit.url }} was successfull."
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+            - name: Failure notification to Slack
+              uses: slackapi/slack-github-action@v1.19.0
+              if: failure()
+              with:
+                  channel-id: "github-actions"
+                  slack-message: "Oops! The build ${{ github.event.pull_request.html_url || github.event.head_commit.url }} has failed. Please check the logs as soon as possible"
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
