@@ -30,7 +30,7 @@ jobs:
               uses: slackapi/slack-github-action@v1.19.0
               if: success()
               with:
-                  channel-id: "github-actions"
+                  channel-id: "builds"
                   slack-message: "I am a Bot! The build ${{ github.event.pull_request.html_url || github.event.head_commit.url }} was successful."
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
@@ -38,7 +38,7 @@ jobs:
               uses: slackapi/slack-github-action@v1.19.0
               if: failure()
               with:
-                  channel-id: "github-actions"
+                  channel-id: "builds"
                   slack-message: "Oops! The build ${{ github.event.pull_request.html_url || github.event.head_commit.url }} has failed. Please check the logs as soon as possible"
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
@@ -51,19 +51,19 @@ jobs:
               env:
                   NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
                   NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-            - name: Deploy success notification
+            - name: Deployment success notification
               uses: slackapi/slack-github-action@v1.19.0
               if: success()
               with:
-                  channel-id: "github-actions"
+                  channel-id: "deployments"
                   slack-message: "I am a Bot! The deployment at ${{ github.event.pull_request.html_url || github.event.head_commit.url }} was successful."
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-            - name: Deploy failure notification
+            - name: Deployment failure notification
               uses: slackapi/slack-github-action@v1.19.0
               if: failure()
               with:
-                  channel-id: "github-actions"
+                  channel-id: "deployments"
                   slack-message: "Oops! The deployment at ${{ github.event.pull_request.html_url || github.event.head_commit.url }} has failed. Please check the logs as soon as possible"
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
