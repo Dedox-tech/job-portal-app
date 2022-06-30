@@ -4,9 +4,9 @@ on:
     push:
         branches:
             - master
-    pull-request:
-        branches: [master]
-        types: [opened, synchronize]
+        pull_request:
+            branches: [master]
+            types: [opened, synchronize]
 
 jobs:
     build_pipeline:
@@ -18,3 +18,11 @@ jobs:
               uses: actions/setup-node@v2
               with:
                   node-version: "16"
+            - name: Install dependencies
+              run: npm install
+            - name: Lint
+              run: npm run eslint
+            - name: Prettier
+              run: npm run prettier
+            - name: Build
+              run: npm run build

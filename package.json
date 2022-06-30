@@ -29,7 +29,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "prettier": "prettier --check src/**/*.js",
+        "prettier": "prettier --list-different src/**/*.js",
         "eslint": "eslint ./**/*.{js,jsx}"
     },
     "eslintConfig": {
