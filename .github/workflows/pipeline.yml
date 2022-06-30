@@ -26,3 +26,9 @@ jobs:
               run: npm run prettier
             - name: Build
               run: npm run build
+            - name: Post sucess to Slack
+              uses: slackapi/slack-github-action@v1.19.0
+              if: success()
+              with:
+                  channel-id: "github-actions"
+                  slack-message: "The build was successfull"
