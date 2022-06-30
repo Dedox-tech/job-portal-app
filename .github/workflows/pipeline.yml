@@ -32,3 +32,5 @@ jobs:
               with:
                   channel-id: "github-actions"
                   slack-message: "The build was successfull"
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
