@@ -12,28 +12,26 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import CustomAvatar from "boring-avatars";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import { AppContext } from "../utils/AppContext";
 
 function JobCard({ company, jobName, location, hours, date, id }) {
-    const { setFavoriteJobsList } = useContext(AppContext);
-    const [isFavorite, setIsFavorite] = useState(false);
+    const { favoriteJobsList, setFavoriteJobsList } = useContext(AppContext);
 
     const handleClickFavorite = () => {
-        if (!isFavorite) {
-            setFavoriteJobsList((previousValues) => [...previousValues, id]);
-        } else {
+        if (favoriteJobsList.includes(id)) {
             setFavoriteJobsList((previousValues) =>
                 previousValues.filter((element) => element !== id)
             );
+        } else {
+            setFavoriteJobsList((previousValues) => [...previousValues, id]);
         }
-        setIsFavorite((previousValue) => !previousValue);
     };
 
     useEffect(() => {
-        console.log(isFavorite);
-    }, [isFavorite]);
+        console.log(favoriteJobsList);
+    }, [favoriteJobsList]);
 
     return (
         <Card variant="outlined">
@@ -68,8 +66,7 @@ function JobCard({ company, jobName, location, hours, date, id }) {
                     aria-label="Add to favorite"
                     onClick={handleClickFavorite}
                 >
-                    {/* <FavoriteIcon color="initial" /> */}
-                    {isFavorite ? (
+                    {favoriteJobsList.includes(id) ? (
                         <FavoriteIcon color="primary" />
                     ) : (
                         <FavoriteBorderIcon color="initial" />
