@@ -1,7 +1,7 @@
 import {
     Box,
-    Card,
-    CardContent,
+    // Card,
+    // CardContent,
     List,
     ListItem,
     Typography,
@@ -40,49 +40,45 @@ export default function DetailsContent() {
     ));
 
     return (
-        <Box sx={{ mt: 5, mb: 10, px: { xs: 2, sm: 5 } }}>
-            <Card variant="outlined" sx={{ p: { xs: 1, sm: 2 } }}>
-                <CardContent>
-                    <Typography variant="h6" color="initial">
-                        Job description
-                    </Typography>
-                    <Typography
-                        paragraph
-                        style={textStyles}
-                        color="text.secondary"
-                        sx={{ mt: 5 }}
-                    >
-                        {jobDescription}
-                    </Typography>
-                    <Typography variant="h6" color="initial" sx={{ mt: 5 }}>
-                        Requirements
-                    </Typography>
-                    <Typography
-                        paragraph
-                        style={textStyles}
-                        color="text.secondary"
-                        sx={{ mt: 5 }}
-                    >
-                        {jobRequirements}
-                    </Typography>
-                    <Typography variant="h6" color="initial" sx={{ mt: 5 }}>
-                        Responsibilities
-                    </Typography>
-                    <Typography
-                        paragraph
-                        style={textStyles}
-                        color="text.secondary"
-                        sx={{ mt: 5 }}
-                    >
-                        {jobResponsabilities}
-                    </Typography>
-                    <Typography variant="h6" color="initial" sx={{ mt: 5 }}>
-                        Skills
-                    </Typography>
-                    <List sx={{ mt: 2 }}>{jobSkillsForRender}</List>
-                    <CustomFooter isJobDetails />
-                </CardContent>
-            </Card>
+        <Box sx={{ mt: 6, mb: 10, px: { xs: 3, sm: 6 } }}>
+            <Typography variant="h6" color="initial">
+                Job description
+            </Typography>
+            <Typography
+                paragraph
+                style={textStyles}
+                color="text.secondary"
+                sx={{ mt: 5 }}
+            >
+                {jobDescription}
+            </Typography>
+            <Typography variant="h6" color="initial" sx={{ mt: 5 }}>
+                Requirements
+            </Typography>
+            <Typography
+                paragraph
+                style={textStyles}
+                color="text.secondary"
+                sx={{ mt: 5 }}
+            >
+                {jobRequirements}
+            </Typography>
+            <Typography variant="h6" color="initial" sx={{ mt: 5 }}>
+                Responsibilities
+            </Typography>
+            <Typography
+                paragraph
+                style={textStyles}
+                color="text.secondary"
+                sx={{ mt: 5 }}
+            >
+                {jobResponsabilities}
+            </Typography>
+            <Typography variant="h6" color="initial" sx={{ mt: 5 }}>
+                Skills
+            </Typography>
+            <List sx={{ mt: 2 }}>{jobSkillsForRender}</List>
+            <CustomFooter isJobDetails />
         </Box>
     );
 }

@@ -11,7 +11,7 @@ import CustomAvatar from "boring-avatars";
 
 export default function DetailsHeader() {
     return (
-        <Box sx={{ mt: 5, px: { xs: 2, sm: 5 } }}>
+        <Box sx={{ mt: 12, px: { xs: 2, sm: 5 } }}>
             <Typography variant="h4" color="initial" align="center">
                 Howdy, stranger :) The job details are shown below
             </Typography>
