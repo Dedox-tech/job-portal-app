@@ -21,7 +21,7 @@ export default function FavoriteJobs() {
     return (
         <Box>
             <CustomAppBar />
-            <Container maxWidth="sm" sx={{ px: 5, mt: 5 }}>
+            <Container maxWidth="sm" sx={{ px: 5, mt: 12 }}>
                 <Typography variant="h4" color="initial" align="center">
                     {messageToRender}
                 </Typography>

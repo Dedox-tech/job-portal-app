@@ -6,7 +6,7 @@ import { usePersistentState } from "react-persistent-state";
 export const AppContext = createContext();
 
 export default function AppContextProvider({ children }) {
-    const [numberOfPost, setNumberOfPost] = usePersistentState(6);
+    const [numberOfPost, setNumberOfPost] = usePersistentState(24);
     const [favoriteJobsList, setFavoriteJobsList] = usePersistentState([]);
     return (
         <AppContext.Provider

@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 export default function CustomAppBar() {
     return (
         <AppBar
-            position="static"
-            variant="outlined"
+            position="fixed"
+            variant="contained"
             elevation={0}
-            color="transparent"
+            style={{ background: "#FFFFFF", borderBottom: "1px solid #e0e0e0" }}
         >
             <Toolbar>
                 <IconButton

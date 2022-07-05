@@ -15,7 +15,7 @@ import React from "react";
 
 export default function InputSearch() {
     return (
-        <Box sx={{ mt: 5 }}>
+        <Box sx={{ mt: 12 }}>
             <Container maxWidth="sm" align="center" sx={{ px: 5 }}>
                 <Typography variant="h4" color="initial">
                     Hey! What are you looking for today?

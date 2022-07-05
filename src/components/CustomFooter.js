@@ -15,7 +15,7 @@ function CustomFooter({ isGeneralJobs, isFavoriteJobs, isJobDetails }) {
                     color="primary"
                     sx={{ mt: 8 }}
                     onClick={() => {
-                        setNumberOfPost((previousValue) => previousValue + 6);
+                        setNumberOfPost((previousValue) => previousValue + 24);
                     }}
                 >
                     Load more
