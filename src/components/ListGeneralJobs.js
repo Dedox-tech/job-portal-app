@@ -1,11 +1,12 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 import React, { useContext, useEffect } from "react";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import JobCard from "./JobCard";
 import useFetchData from "../utils/useFetchData";
 import dateToString from "../utils/dateToString";
 import { AppContext } from "../utils/AppContext";
+import CustomErrorMessage from "./CustomErrorMessage";
 
 export default function ListGeneralJobs() {
     const { numberOfPost } = useContext(AppContext);
@@ -14,16 +15,7 @@ export default function ListGeneralJobs() {
     let elementToRender;
 
     if (error) {
-        elementToRender = (
-            <Box>
-                <Typography paragraph>
-                    Oops! An error has ocurred fetching the data
-                </Typography>
-                <Typography paragraph>
-                    Error message: {error.message}
-                </Typography>
-            </Box>
-        );
+        elementToRender = <CustomErrorMessage errorMessage={error.message} />;
     }
 
     if (data) {

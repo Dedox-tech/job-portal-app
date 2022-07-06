@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import React from "react";
 import { useParams } from "react-router-dom";
 import useFetchData from "../utils/useFetchData";
 import CustomAppBar from "./CustomAppBar";
 import DetailsHeader from "./DetailsHeader";
 import DetailsContent from "./DetailsContent";
+import CustomErrorMessage from "./CustomErrorMessage";
 
 export default function JobDetails() {
     const { jobUrl } = useParams();
@@ -16,7 +17,7 @@ export default function JobDetails() {
             <Box>
                 <CustomAppBar />
                 <Container maxWidth="custom">
-                    <Typography> Error </Typography>
+                    <CustomErrorMessage errorMessage={error.message} />
                 </Container>
             </Box>
         );

@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-underscore-dangle */
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import React, { useContext } from "react";
 import JobCard from "./JobCard";
 import useFetchData from "../utils/useFetchData";
 import { AppContext } from "../utils/AppContext";
 import dateToString from "../utils/dateToString";
+import CustomErrorMessage from "./CustomErrorMessage";
 
 export default function ListFavoritesJobs() {
     const { favoriteJobsList } = useContext(AppContext);
@@ -14,16 +15,7 @@ export default function ListFavoritesJobs() {
     let elementToRender;
 
     if (error) {
-        elementToRender = (
-            <Box>
-                <Typography paragraph>
-                    Oops! An error has ocurred fetching the data
-                </Typography>
-                <Typography paragraph>
-                    Error message: {error.message}
-                </Typography>
-            </Box>
-        );
+        elementToRender = <CustomErrorMessage errorMessage={error.message} />;
     }
 
     if (data) {
