@@ -42,6 +42,7 @@ export default function ListFavoritesJobs() {
                     }
                     hours={element.jobType}
                     date={dateToString(element.activeFrom)}
+                    jobUrl={element.jobUrl}
                 />
             </Grid>
         ));
@@ -59,15 +60,6 @@ export default function ListFavoritesJobs() {
                     alignContent="center"
                 >
                     {elementToRender}
-                    {/* <Grid item xs={12} sm={9} md={5} lg={4}>
-                        <JobCard />
-                    </Grid>
-                    <Grid item xs={12} sm={9} md={5} lg={4}>
-                        <JobCard />
-                    </Grid>
-                    <Grid item xs={12} sm={9} md={5} lg={4}>
-                        <JobCard />
-                    </Grid> */}
                 </Grid>
             </Container>
         </Box>

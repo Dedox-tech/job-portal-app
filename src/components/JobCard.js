@@ -14,9 +14,10 @@ import ReadMoreIcon from "@mui/icons-material/ReadMore";
 import CustomAvatar from "boring-avatars";
 import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { AppContext } from "../utils/AppContext";
 
-function JobCard({ company, jobName, location, hours, date, id }) {
+function JobCard({ company, jobName, location, hours, date, id, jobUrl }) {
     const { favoriteJobsList, setFavoriteJobsList } = useContext(AppContext);
 
     const handleClickFavorite = () => {
@@ -30,7 +31,7 @@ function JobCard({ company, jobName, location, hours, date, id }) {
     };
 
     useEffect(() => {
-        console.log(favoriteJobsList);
+        console.log(`The favorite jobs list is:  ${favoriteJobsList}`);
     }, [favoriteJobsList]);
 
     return (
@@ -72,7 +73,11 @@ function JobCard({ company, jobName, location, hours, date, id }) {
                         <FavoriteBorderIcon color="initial" />
                     )}
                 </IconButton>
-                <IconButton aria-label="Read more about the job">
+                <IconButton
+                    aria-label="Read more about the job"
+                    component={Link}
+                    to={`/job-details/${jobUrl}`}
+                >
                     <ReadMoreIcon />
                 </IconButton>
             </CardActions>
@@ -87,14 +92,15 @@ JobCard.propTypes = {
     hours: PropTypes.string,
     date: PropTypes.string,
     id: PropTypes.string.isRequired,
+    jobUrl: PropTypes.string.isRequired,
 };
 
 JobCard.defaultProps = {
-    company: "No registra",
-    jobName: "No registra",
-    location: "No registra",
-    hours: "No registra",
-    date: "No registra",
+    company: "Not found",
+    jobName: "Not found",
+    location: "Not found",
+    hours: "Not found",
+    date: "Not found",
 };
 
 export default JobCard;

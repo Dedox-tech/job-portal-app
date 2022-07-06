@@ -39,14 +39,14 @@ export default function ListGeneralJobs() {
                     }
                     hours={element.jobType}
                     date={dateToString(element.activeFrom)}
+                    jobUrl={element.jobUrl}
                 />
             </Grid>
         ));
     }
 
     useEffect(() => {
-        console.log("data", data);
-        console.log("error", error);
+        console.log("The data is: ", data);
     });
 
     return (

@@ -10,7 +10,7 @@ export default function Main() {
             <Route path="/" element={<GeneralJobs />} />
             <Route path="/general-jobs" element={<GeneralJobs />} />
             <Route path="/favorite-jobs" element={<FavoriteJobs />} />
-            <Route path="/job-details" element={<JobDetails />} />
+            <Route path="/job-details/:jobUrl" element={<JobDetails />} />
         </Routes>
     );
 }
