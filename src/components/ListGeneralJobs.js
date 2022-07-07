@@ -19,7 +19,10 @@ export default function ListGeneralJobs() {
     }
 
     if (data) {
-        elementToRender = data.slice(6, numberOfPost + 6).map((element) => (
+        const dataUpToDate = data.filter(
+            (element) => element.isDisabledOrOutdated === false
+        );
+        elementToRender = dataUpToDate.slice(0, numberOfPost).map((element) => (
             <Grid item xs={12} sm={9} md={5} lg={4} key={element._id}>
                 <JobCard
                     id={element._id}
