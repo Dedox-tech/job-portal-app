@@ -8,6 +8,12 @@ export const AppContext = createContext();
 export default function AppContextProvider({ children }) {
     const [numberOfPost, setNumberOfPost] = usePersistentState(24);
     const [favoriteJobsList, setFavoriteJobsList] = usePersistentState([]);
+    const [searchQueryObject, setSearchQueryObject] = usePersistentState({
+        techKeywords: "",
+        experiencie: "",
+        companyType: "",
+        hours: "",
+    });
     return (
         <AppContext.Provider
             value={useMemo(
@@ -16,8 +22,17 @@ export default function AppContextProvider({ children }) {
                     setNumberOfPost,
                     favoriteJobsList,
                     setFavoriteJobsList,
+                    searchQueryObject,
+                    setSearchQueryObject,
                 }),
-                [numberOfPost, favoriteJobsList]
+                [
+                    numberOfPost,
+                    favoriteJobsList,
+                    searchQueryObject.techKeywords,
+                    searchQueryObject.experiencie,
+                    searchQueryObject.companyType,
+                    searchQueryObject.hours,
+                ]
             )}
         >
             {children}

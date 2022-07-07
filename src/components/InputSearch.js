@@ -11,13 +11,16 @@ import {
     Select,
     InputLabel,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { AppContext } from "../utils/AppContext";
 
 export default function InputSearch() {
     const [techKeywords, setTechKeywords] = useState("");
     const [experience, setExperience] = useState("");
     const [companyType, setCompanyType] = useState("");
     const [hours, setHours] = useState("");
+
+    const { setSearchQueryObject } = useContext(AppContext);
 
     const handleChangeTechKeywords = (event) => {
         setTechKeywords(event.target.value);
@@ -33,6 +36,19 @@ export default function InputSearch() {
 
     const handleChangeHours = (event) => {
         setHours(event.target.value);
+    };
+
+    const makeSearchQuery = () => {
+        setSearchQueryObject(() => ({
+            techKeywords,
+            experience,
+            companyType,
+            hours,
+        }));
+        setTechKeywords(() => "");
+        setExperience(() => "");
+        setCompanyType(() => "");
+        setHours(() => "");
     };
 
     useEffect(() => {
@@ -135,6 +151,7 @@ export default function InputSearch() {
                     color="primary"
                     fullWidth
                     sx={{ mt: 4 }}
+                    onClick={makeSearchQuery}
                 >
                     Search
                 </Button>
