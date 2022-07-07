@@ -34,6 +34,7 @@ export default function JobDetails() {
                     <DetailsHeader
                         jobName={jobToRender.name}
                         company={jobToRender.company}
+                        redirectJobUrl={jobToRender.redirectJobUrl}
                     />
                     <DetailsContent
                         jobDescription={jobToRender.description}
@@ -42,6 +43,7 @@ export default function JobDetails() {
                             jobToRender.responsibilitiesTextArea
                         }
                         jobSkills={jobToRender.technologies}
+                        redirectJobUrl={jobToRender.redirectJobUrl}
                     />
                 </Container>
             </Box>

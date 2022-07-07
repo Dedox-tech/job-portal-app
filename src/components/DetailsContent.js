@@ -1,12 +1,4 @@
-import {
-    Box,
-    // Card,
-    // CardContent,
-    List,
-    ListItem,
-    Typography,
-    ListItemText,
-} from "@mui/material";
+import { Box, List, ListItem, Typography, ListItemText } from "@mui/material";
 import React from "react";
 import PropTypes from "prop-types";
 import CustomFooter from "./CustomFooter";
@@ -16,6 +8,7 @@ function DetailsContent({
     jobRequirements,
     jobResponsibilities,
     jobSkills,
+    redirectJobUrl,
 }) {
     const textStyles = {
         whiteSpace: "pre-line",
@@ -75,7 +68,7 @@ function DetailsContent({
                 Skills
             </Typography>
             <List sx={{ mt: 2 }}>{jobSkillsForRender}</List>
-            <CustomFooter isJobDetails />
+            <CustomFooter isJobDetails redirectJobUrl={redirectJobUrl} />
         </Box>
     );
 }
@@ -85,6 +78,7 @@ DetailsContent.propTypes = {
     jobRequirements: PropTypes.string,
     jobResponsibilities: PropTypes.string,
     jobSkills: PropTypes.arrayOf(PropTypes.string),
+    redirectJobUrl: PropTypes.string,
 };
 
 DetailsContent.defaultProps = {
@@ -92,6 +86,7 @@ DetailsContent.defaultProps = {
     jobRequirements: "Not found",
     jobResponsibilities: "Not found",
     jobSkills: ["Not found"],
+    redirectJobUrl: "#",
 };
 
 export default DetailsContent;

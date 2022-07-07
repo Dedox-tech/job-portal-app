@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 import FooterTrademark from "./FooterTrademark";
 import { AppContext } from "../utils/AppContext";
 
-function CustomFooter({ isGeneralJobs, isFavoriteJobs, isJobDetails }) {
+function CustomFooter({
+    isGeneralJobs,
+    isFavoriteJobs,
+    isJobDetails,
+    redirectJobUrl,
+}) {
     const { setNumberOfPost } = useContext(AppContext);
 
     if (isGeneralJobs) {
@@ -43,6 +48,9 @@ function CustomFooter({ isGeneralJobs, isFavoriteJobs, isJobDetails }) {
                     color="primary"
                     fullWidth
                     sx={{ mb: 3 }}
+                    target="_blank"
+                    rel="noopener"
+                    href={redirectJobUrl}
                 >
                     Apply now
                 </Button>
@@ -52,16 +60,18 @@ function CustomFooter({ isGeneralJobs, isFavoriteJobs, isJobDetails }) {
     }
 }
 
-CustomFooter.defaultProps = {
-    isGeneralJobs: false,
-    isFavoriteJobs: false,
-    isJobDetails: false,
-};
-
 CustomFooter.propTypes = {
     isGeneralJobs: PropTypes.bool,
     isFavoriteJobs: PropTypes.bool,
     isJobDetails: PropTypes.bool,
+    redirectJobUrl: PropTypes.string,
+};
+
+CustomFooter.defaultProps = {
+    isGeneralJobs: false,
+    isFavoriteJobs: false,
+    isJobDetails: false,
+    redirectJobUrl: "#",
 };
 
 export default CustomFooter;
