@@ -27,11 +27,11 @@ export default function InputSearch() {
         setExperience(event.target.value);
     };
 
-    const handleCompanyType = (event) => {
+    const handleChangeCompanyType = (event) => {
         setCompanyType(event.target.value);
     };
 
-    const handleHours = (event) => {
+    const handleChangeHours = (event) => {
         setHours(event.target.value);
     };
 
@@ -102,7 +102,7 @@ export default function InputSearch() {
                                 labelId="company-type-for-jobs"
                                 label="Company Type"
                                 value={companyType}
-                                onChange={handleCompanyType}
+                                onChange={handleChangeCompanyType}
                             >
                                 <MenuItem value="Startup">Startup</MenuItem>
                                 <MenuItem value="Product">Product</MenuItem>
@@ -118,7 +118,7 @@ export default function InputSearch() {
                                 labelId="hours-for-jobs"
                                 label="Hours"
                                 value={hours}
-                                onChange={handleHours}
+                                onChange={handleChangeHours}
                             >
                                 <MenuItem value="Full-Time">Full-Time</MenuItem>
                                 <MenuItem value="Part-Time">Part-Time</MenuItem>
