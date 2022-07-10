@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useMemo } from "react";
+import React, { createContext, useMemo, useState } from "react";
 // eslint-disable-next-line
 import { usePersistentState } from "react-persistent-state";
 
@@ -8,9 +8,9 @@ export const AppContext = createContext();
 export default function AppContextProvider({ children }) {
     const [numberOfPost, setNumberOfPost] = usePersistentState(24);
     const [favoriteJobsList, setFavoriteJobsList] = usePersistentState([]);
-    const [searchQueryObject, setSearchQueryObject] = usePersistentState({
+    const [searchQueryObject, setSearchQueryObject] = useState({
         techKeywords: "",
-        experiencie: "",
+        experience: "",
         companyType: "",
         hours: "",
     });
@@ -29,7 +29,7 @@ export default function AppContextProvider({ children }) {
                     numberOfPost,
                     favoriteJobsList,
                     searchQueryObject.techKeywords,
-                    searchQueryObject.experiencie,
+                    searchQueryObject.experience,
                     searchQueryObject.companyType,
                     searchQueryObject.hours,
                 ]

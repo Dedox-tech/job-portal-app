@@ -5,11 +5,13 @@ import { Box, Container, Grid } from "@mui/material";
 import JobCard from "./JobCard";
 import useFetchData from "../utils/useFetchData";
 import dateToString from "../utils/dateToString";
+// import filterInputData from "../utils/filterInputData";
 import { AppContext } from "../utils/AppContext";
 import CustomErrorMessage from "./CustomErrorMessage";
 
 export default function ListGeneralJobs() {
     const { numberOfPost } = useContext(AppContext);
+    // const { experience } = searchQueryObject;
     const { data, error } = useFetchData();
 
     let elementToRender;
@@ -22,6 +24,11 @@ export default function ListGeneralJobs() {
         const dataUpToDate = data.filter(
             (element) => element.isDisabledOrOutdated === false
         );
+
+        /* const dataFiltered = dataUpToDate.filter(
+            filterInputData(experience, "expLevel")
+        ); */
+
         elementToRender = dataUpToDate.slice(0, numberOfPost).map((element) => (
             <Grid item xs={12} sm={9} md={5} lg={4} key={element._id}>
                 <JobCard
