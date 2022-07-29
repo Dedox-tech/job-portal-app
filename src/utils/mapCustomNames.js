@@ -1,5 +1,5 @@
-export default function mapCustomNames () {
+/* export default function mapCustomNames () {
     const = {
         
     }
-}
+} */
